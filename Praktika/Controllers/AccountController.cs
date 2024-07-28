@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Praktika.Data;
 using Praktika.Models;
+using Praktika.ViewModels;
 
 namespace Praktika.Controllers
 {
@@ -10,16 +11,18 @@ namespace Praktika.Controllers
         private readonly ApplicationDbContext _context;
 
         public AccountController(ApplicationDbContext context)
-
         {
             _context = context;
         }
 
+        // GET: /Account/Register
         public IActionResult Register()
         {
             return View();
         }
 
+        // POST: /Account/Register
+        [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -37,9 +40,9 @@ namespace Praktika.Controllers
             }
             return View(model);
         }
-    
-    // GET: AccountController
-    public ActionResult Index()
+
+        // GET: AccountController
+        public ActionResult Index()
         {
             return View();
         }

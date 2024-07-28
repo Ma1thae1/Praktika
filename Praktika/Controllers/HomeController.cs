@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Praktika.Data;
 using Praktika.Models;
 using System.Diagnostics;
@@ -8,22 +9,11 @@ namespace Praktika.Controllers
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public HomeController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-
-        public IActionResult Statistics()
-        {
-            // Логика для получения и отображения статистики и рекомендаций
-            return View();
-        }
-
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context, ILogger<HomeController> logger)
         {
+            _context = context;
             _logger = logger;
         }
 
@@ -34,6 +24,12 @@ namespace Praktika.Controllers
 
         public IActionResult Privacy()
         {
+            return View();
+        }
+
+        public IActionResult Statistics()
+        {
+            // Логика для получения и отображения статистики и рекомендаций
             return View();
         }
 

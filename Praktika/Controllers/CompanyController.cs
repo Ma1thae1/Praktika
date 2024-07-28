@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Praktika.Data;
 
 namespace Praktika.Controllers
@@ -18,11 +19,8 @@ namespace Praktika.Controllers
             return View(await _context.Companies.ToListAsync());
         }
 
-        // GET: CompanyController
-        public ActionResult Index()
-        {
-            return View();
-        }
+      
+
 
         // GET: CompanyController/Details/5
         public ActionResult Details(int id)

@@ -19,12 +19,7 @@ namespace Praktika.Controllers
             return View(await _context.Investments.Include(i => i.Company).Include(i => i.User).ToListAsync());
         }
 
-        // GET: InvestmentController
-        public ActionResult Index()
-        {
-            return View();
-        }
-
+        
         // GET: InvestmentController/Details/5
         public ActionResult Details(int id)
         {
